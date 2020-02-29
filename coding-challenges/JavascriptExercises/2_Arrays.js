@@ -75,9 +75,9 @@ treasureChest.shift()
 // 9. Use both .unshift and .shift on your treasureChest. As always, console.log your treasureChest afterwards to see the result. What happens? Can you explain it to your pair?
 //above
 // 10. Now that we've populated treasureChest, let's add that to the mysticalAnimal object we created yesterday. We had a property on there called collects. Overwrite that property with the trasureChest array we've been playing with. console.log the mysticalAnimal object afterwards to make sure the collects property is now set equal to your array. 
-treasureChest['mysticalAnimal'] = mysticalAnimal;
+mysticalAnimal['collects'] = treasureChest;
 // 11. Create an empty array called grandCouncil. This is where we'll store all of the mysticalAnimal objects we'll create!
-treasureChest['grandCouncil'] = [];
+grandCouncil = []
 // 12. Now create three new objects. Each object should have the following properties: 
   // type- a string specifying what type of mysticalAnimal this is. Unicorns and dinosaurs and yeti and Loch Ness Monsters and polar bears and red pandas are all viable options!
 var object1 = {type: 'dragon', collects: 'fire', canFly: true};
@@ -90,15 +90,15 @@ var object3 = {type: 'Loch Ness Monster', collects: 'water', canFly: false};
 
 
   // 13. Now add these onto the end of our grandCouncil array using the three methods outlined above (hard coding in an index position to add it to: arr[3]; utilizing the .length property: arr[arr.length]; push: arr.push(objName) ). 
-treasureChest['grandCouncil'][0] = object1;
-var arrayLength = treasureChest['grandCouncil'].length;
-treasureChest['grandCouncil'][arrayLength] = object2;
+grandCouncil[0] = object1;
+var arrayLength = grandCouncil.length;
+grandCouncil[arrayLength] = object2;
 
-treasureChest['grandCouncil'].push(object3);
-
+grandCouncil.push(object3);
+console.log(grandCouncil);
 // 14. Whoops- looks like one of our mysticalAnimals melts too easily in the presence of Leslie the Dragon. Let's overwrite the value stored at the index 2 in our array with the string 'open position available!'. Check what grandCouncil looks like after overwriting this value. 
-treasureChest['grandCouncil'][2] = 'Position Available';
-console.log(treasureChest);
+
+
 // Congratulations! You've now gotten in a decent bit of practice using arrays and understanding the different ways to add and access values from them. 
   // To recap: 
   // Objects:

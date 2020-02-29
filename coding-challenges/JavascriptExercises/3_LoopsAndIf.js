@@ -25,6 +25,11 @@ var obj = {
   // This should tell you that the for loop is running 5 times. And all it's doing is running the body of the for loop once on each iteration. There's no magic there. 
   // The body of the for loop is just a block of code the same number of times are there are items in the array.
     // If we have 5 items in our array, we will run this block of code 5 times. 
+// for (i = 0; i < 5; i++){
+    
+//   console.log("Hi, I'm in the Loop");
+
+// }
 // 2. Cool, now let's console.log what i is in each iteration.
   // You should see 
   // 0
@@ -42,6 +47,12 @@ var obj = {
   // Remember that a for loop is just a block of code that we execute the same number of times as we have items in the array. 
     // The only thing that changes each time is what i is. 
 
+for (i = 0; i < 5; i++){
+
+  console.log("Hi, I'm in the Loop", i);
+  
+}
+
 // 3. Alright, now that we've figured out that i is just a number on each iteration, let's use i to access each item in our arr. 
   // Create a new for loop to iterate through arr, console logging each item to the console. We expect to see
   // 100
@@ -57,13 +68,29 @@ var obj = {
     // 'the value of i is: 3, the value we're accessing in the array is 400'
     // 'the value of i is: 4, the value we're accessing in the array is 500'
 
+    
+for (i = 0; i < arr.length; i++){
+
+  console.log(i, "the value we're accessing in the array = " + arr[i]);
+  
+};
+
 // 4. Great! Now you've figured out that i is just a number we can use to access each item in the array, one per iteration. 
   // Now let's use a new for loop to modify the array. Let's add 1 to each item in arr. 
+
   // Now that you've added 1 to each item in arr, console.log it to see the results. 
     // We expect to see [101, 201, 301, 401, 501]
   // Have some fun doing this a few more times. Try multiplying each item in arr by some number. Then try dividing it by some number. 
     // Write entirely new for loops each time, don't just change the '+' to a '/'. 
     // We want to get practice typing out for loops as many times as possible. 
+for (i = 0; i < arr.length; i++){
+
+  arr[i] = arr[i] + 1;
+  console.log(arr[i]);
+  arr[i] = arr[i] - 2;
+  console.log(arr[i]);
+  
+}
 
 // By this point you should be feeling pretty good on iterating through arrays using for loops! Now let's look into iterating through objects. 
 
@@ -72,6 +99,8 @@ var obj = {
   // You should see this pop up 3 times in your console.
   // This should tell you that the for loop for our object is running 3 times. And, much like our array for loop, 
     // all it's doing is running the body of the for loop once on each iteration. 
+
+
 // 6. Now let's check out what key is on each iteration.
   // If you console.log the key in the for loop body, you should see 
   // 'city'
@@ -84,7 +113,19 @@ var obj = {
     // On each iteration, let's push the key into this arrayOfKeys. After your for loop, console.log the arrayOfKeys. 
     // You should see ['city', 'slingsCode', 'excitementLevel']. Note that they may not be in this order, 
     // since we can't guarantee the order that an object's keys are in. 
+  
+keys = Object.keys(obj);
+array = keys;
+for (i = 0; i < keys.length; i++){
+
+  console.log(keys[i]);
+  
+}
+//console.log(array);
+console.log(keys);
 // 7. Ok, now that we've figured out that key is just a variable that will be set equal to the name of each property in obj, 
+
+
   // let's use that to access the values stored in obj. 
   // Write a new for loop to iterate through obj, console logging each value to the console. 
   // We'd expect to see
@@ -96,6 +137,11 @@ var obj = {
     // 'the value of key is: city, the value we're accessing in the object is Oakland'
     // 'the value of key is: slingsCode, the value we're accessing in the object is true'
     // 'the value of key is: excitementLevel, the value we're accessing in the object is 10'
+for (i = 0; i < keys.length; i++){
+
+  console.log(obj[keys[i]]);
+  
+}
 // 8. You should be feeling pretty great about iterating through objects now! 
   // So let's combine this with our if statement. 
   // Let's only log a value to the console if it equals 'Oakland'. 
@@ -104,20 +150,43 @@ var obj = {
     // Remember that we use && for and statements. 
   // Inside another for loop for arr, only console.log the values that are either above 400, or less than 200. 
     // Remember that we use || for or statements.
+for (i = 0; i < keys.length; i++){
+
+  if (obj[keys[i]] === 'Oakland'){
+    console.log(obj[keys[i]]);
+  }
+}
+
+for (i = 0; i < arr.length; i++){
+
+  if (arr[i] > 100 && arr[i] < 400){
+    console.log(arr[i])
+  };
+  if (arr[i] > 400 || arr[i] < 200){
+    console.log(arr[i]);
+  };
+
+};
+
 
 
 // ******** NIGHTMARE MODE! ********* // 
 
 // 9. Now let's combine an if statement with our array for loop. 
   // Let's put 
-  // if(arr[i]) {
-  //   console.log(arr[i]);
+
+  // for (i = 0; i < arr.length; i++){ 
+  //   if(arr[i]) {
+  //    console.log(arr[i]);
+  //   }
   // }
   // inside of our for loop. What do you expect this to log? 
   // Remember that JavaScript does type coercion, forcing whatever is in the conditional part of our if(conditional) statement to be a boolean value
   // Let's try this again:
-  // if(0) {
-  //   console.log(arr[i]);
+  // for (i = 0; i < arr.length; i++){ 
+  //   if() {
+  //    console.log(arr[i]);
+  //   }
   // }
   // Keep trying different combinations inside the conditional part of the if loop. Particularly, try:
   /*
@@ -133,6 +202,8 @@ var obj = {
   {}
   []
   */
+
+
 // 10. What's the difference between === and == and = ?
   // Try using all three of them, and explaing the results of each one to your partner. Once you've done that, some explanations are below. Be sure that you can explain these to your partner, they're important!
   // === will always return a boolean value (true, false). It checks whether two things are equal. 
@@ -166,3 +237,7 @@ var obj = {
       // 'the value of i is: 2, the value we're accessing in the array is 300'
       // 'the value of i is: 1, the value we're accessing in the array is 200'
       // 'the value of i is: 0, the value we're accessing in the array is 100'
+
+for (i = arr.length - 1; i >= 0; i--){
+  console.log(arr[i]);
+}
