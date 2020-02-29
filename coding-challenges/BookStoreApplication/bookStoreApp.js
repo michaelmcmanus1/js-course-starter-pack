@@ -31,6 +31,7 @@ function __dontWorryAboutThis(){
 	return __createBookStore(__booksArray);
 
 } 
+
 //Don't pay any attention to the man behind the curtain in lines 1-33. Remember, the leading underscores in the variable names mean you shouldn't be messing with these variables. 
 
 function testUser(){
@@ -38,14 +39,15 @@ function testUser(){
 		balance = parseFloat(balance.toString().slice(0, 4), 10);
 	return {
 		balance: balance,
-		cart: [],
+		cart: ['Yass'],
 	}
 }
 
 var BookStore = __dontWorryAboutThis();
 var Susan = testUser();
 
-console.log(Susan);
+//console.log(Susan);
+//console.log(testUser())
 
 var checkStore = function(booktitle){
 	for (var i = 0; i < BookStore.length; i++) {
@@ -75,16 +77,75 @@ var checkStore = function(booktitle){
 // Log the cart to show it is not there
 // Update the balance to reflect it has gone! 
 
+//creates another variable in the object "Susan" called deleteBook
+
 Susan.deleteBook = function(bookname) {
+	var userInput = prompt("Are you sure?, Please write 'yes' or 'no'.")
+	if (userInput === 'yes'){
+	for (i = 0; i < Susan['cart'].length; i++){
+
+		if (Susan['cart'][i] === bookname){
+			Susan['balance'] -= 10;
+			Susan['cart'][i] = null;
+	
+		}
+
+	}
+	}
+
 };
+
+console.log(Susan);
+//Susan['deleteBook']('Yass')
+//console.log(Susan.cart);
+
 
 
 // What other functionality do you think our bookstore needs, try adding more information
 
 // How about adding a method that deletes all the books from your cart?
 
+Susan.deleteAll = function(){
+	if (window.confirm('Are You Sure??')){
+
+		Susan['cart'] = [];
+		Susan['balance'] = 0;
+	}
+}
+
+console.log(Susan);
+
+
 
 // Maybe even... a way to checkout from the store? 
 
-// to display multiple books by one author.... interesting .	
 
+// function checkOut(){
+
+// 	var checkoutMessage = prompt("Do you want to check out with your book(s): " + Susan['cart'] + ", with a total price of £" + Susan['balance'] + "?")
+// 	if (checkoutMessage === 'yes'){
+// 		console.log('Checked Out')
+// 	}
+
+// };
+
+
+// to display multiple books by one author.... interesting .	
+console.log(BookStore)
+
+function displayAllBooks(author){
+	author.toString()
+	var booksByAuthor = []
+	for (i = 0; i < BookStore.length; i++){
+		var auth = BookStore[i]['author']
+		var book = BookStore[i]['title']
+		if (auth === author){
+
+			booksByAuthor.push(book)
+
+		}
+	}
+	return booksByAuthor;
+};
+
+console.log(displayAllBooks(prompt("Enter Author Name")))
